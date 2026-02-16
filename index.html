@@ -140,36 +140,6 @@
     [data-animate]{opacity:0;transform:translateY(18px);transition:all 0.65s cubic-bezier(.2,.9,.2,1)}
     [data-animate].in-view{opacity:1;transform:none}
 
-        body, html {
-      margin: 0;
-      padding: 0;
-      width: 100%;
-      overflow-x: hidden; /* removes sideways scrolling on mobile */
-    }
-
-    section {
-      width: 100%;
-      margin: 0;
-      padding: 4rem 0;
-      background-size: cover;
-      background-position: center;
-    }
-
-    .container {
-      width: min(1200px, 90%);
-      margin: 0 auto;
-    }
-
-    .site-header {
-      background: rgba(0,0,0,0.9);
-      color: white;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      z-index: 1000;
-      padding: 1rem 2rem;
-    }
 
 
     /* Responsive */
@@ -184,21 +154,6 @@
       .nav a{display:block;padding:0.75rem 0;color:#fff;border-bottom:1px solid rgba(255,255,255,0.1)}
       .nav a:last-child{border-bottom:none}
       .hamburger{display:block;font-size:1.8rem;background:none;border:none;color:#fff;cursor:pointer}
-
-      /* Fade-in animation for dropdown menu */
-      .nav {
-        transition: all 0.3s ease-in-out;
-        opacity: 0;
-        transform: translateY(-10px);
-        overflow: hidden;
-        max-height: 0;
-      }
-      .nav.show {
-        display: flex;
-        opacity: 1;
-        transform: translateY(0);
-        max-height: 500px; /* enough space for all links */
-      }
 
 }
 
@@ -542,19 +497,9 @@
     // Hamburger & mobile nav
     const ham = document.querySelector('.hamburger');
     const nav = document.querySelector('.nav');
-    const navLinks = document.querySelectorAll('.nav a');
-
-    ham && ham.addEventListener('click', () => {
-      nav.classList.toggle('show');
-    });
-
-    // Auto-close mobile menu when clicking a link
-    navLinks.forEach(link => {
-      link.addEventListener('click', () => {
-        if (nav.classList.contains('show')) {
-          nav.classList.remove('show');
-        }
-      });
+    ham && ham.addEventListener('click', ()=>{
+    const showing = nav.style.display === 'flex';
+    nav.style.display = showing ? 'none' : 'flex';
     });
 
 
