@@ -494,10 +494,21 @@
     // Hamburger & mobile nav
     const ham = document.querySelector('.hamburger');
     const nav = document.querySelector('.nav');
-    ham && ham.addEventListener('click', ()=>{
-      const showing = nav.style.display === 'flex';
-      nav.style.display = showing ? 'none' : 'flex';
+    const navLinks = document.querySelectorAll('.nav a');
+
+    ham && ham.addEventListener('click', () => {
+      nav.classList.toggle('show');
     });
+
+    // Auto-close mobile menu when clicking a link
+    navLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        if (nav.classList.contains('show')) {
+          nav.classList.remove('show');
+        }
+      });
+    });
+
 
   </script>
 </body>
