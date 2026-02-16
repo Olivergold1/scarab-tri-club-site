@@ -502,17 +502,6 @@
     nav.style.display = showing ? 'none' : 'flex';
     });
 
-    // NEW: close menu when a nav link is clicked (mobile only)
-    document.querySelectorAll('.nav a').forEach(link => {
-      link.addEventListener('click', () => {
-        if (window.innerWidth <= 980) {
-          nav.style.display = 'none';
-        }
-      });
-    });
-  
-
-
 
   </script>
 </body>
