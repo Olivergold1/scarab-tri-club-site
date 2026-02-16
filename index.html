@@ -146,9 +146,14 @@
       .hero{padding:3.2rem 1rem}
       .membership-grid{grid-template-columns:1fr}
       .contact-grid{grid-template-columns:1fr}
-      .nav{display:none}
-      .hamburger{display:block}
-    }
+
+      /* Hide desktop nav and show hamburger */
+      .nav{display:none;flex-direction:column;position:absolute;top:100%;left:0;width:100%;background:rgba(0,0,0,0.9);padding:1rem 0;text-align:center;z-index:99}
+      .nav a{display:block;padding:0.75rem 0;color:#fff;border-bottom:1px solid rgba(255,255,255,0.1)}
+      .nav a:last-child{border-bottom:none}
+      .hamburger{display:block;font-size:1.8rem;background:none;border:none;color:#fff;cursor:pointer}
+}
+
 
   </style>
 </head>
