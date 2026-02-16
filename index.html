@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Wilmslow SCARAB Tri Club</title>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;700&family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* ==========================
+       Brand palette & variables
+       ========================== */
+    :root{
+      --accent-green: #a9c458;           /* user provided */
+      --highlight-yellow: #fffc00;       /* interpreted close to provided #ffffc00 */
+      --neutral-900: #0f1112;
+      --neutral-700: #3a3a3a;
+      --neutral-100: #f6f6f6;
+      --bg-gradient-top: #2b2b2b;
+      --bg-gradient-bottom: #141414;
+      --container-corvid-background-color: linear-gradient(180deg, var(--bg-gradient-top), var(--bg-gradient-bottom));
+      --radius: 12px;
+      --glass: rgba(255,255,255,0.04);
+    }
+
+    /* ===============
+       Base / Reset
+       =============== */
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:'Open Sans',system-ui,-apple-system,Segoe UI,Roboto,'Helvetica Neue',Arial;
+      color: #fff;
+      background: var(--container-corvid-background-color);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.5;
+      scroll-behavior:smooth;
+    }
+    img{max-width:100%;height:auto;display:block}
+    a{text-decoration:none;color:inherit}
+
+    /* ===========
+       Header/Nav
+       =========== */
+    .site-header{
+      position:sticky;top:0;z-index:40;
+      backdrop-filter: blur(6px);
+      background: linear-gradient(90deg, rgba(255,252,0,0.12), rgba(169,196,88,0.06));
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+      padding: 0.65rem 1.25rem;
+      display:flex;align-items:center;justify-content:space-between;gap:1rem;
+    }
+    .brand{display:flex;align-items:center;gap:0.75rem}
+    .brand .logo{
+      width:46px;height:46px;border-radius:10px;background:linear-gradient(135deg,var(--highlight-yellow),var(--accent-green));
+      display:flex;align-items:center;justify-content:center;color:var(--neutral-900);font-weight:700;font-family:'Poppins';
+    }
+    .brand h1{font-family:'Poppins';font-size:1.05rem;margin:0;color:#fff}
+
+    .nav{
+      display:flex;align-items:center;gap:1rem
+    }
+    .nav a{color:rgba(255,255,255,0.92);font-weight:600;padding:0.5rem 0.6rem;border-radius:8px}
+    .nav a:hover{color:var(--neutral-900);background:rgba(255,255,255,0.08)}
+
+    .cta-button{background:var(--neutral-900);color:var(--highlight-yellow);padding:0.5rem 0.9rem;border-radius:999px;font-weight:700;border:2px solid rgba(255,255,255,0.06)}
+    .cta-button:hover{transform:translateY(-2px)}
+
+    /* Hamburger - small screens */
+    .hamburger{display:none;background:transparent;border:none;color:#fff;font-size:1.25rem}
+
+    /* ======
+       HERO
+       ====== */
+    .hero{
+      min-height:66vh;display:flex;align-items:center;justify-content:center;padding:4rem 1rem;position:relative;overflow:hidden;
+      background-image:linear-gradient(180deg, rgba(41,41,41,0.48), rgba(20,20,20,0.68)),url('https://images.unsplash.com/photo-1599058917212-d750089bc07c?auto=format&fit=crop&w=2000&q=60');
+      background-size:cover;background-position:center center;
+    }
+
+    .hero-inner{max-width:1200px;width:100%;display:grid;grid-template-columns:1fr 420px;gap:2rem;align-items:center}
+    .hero-copy h2{font-family:'Poppins';font-size:clamp(1.6rem,3.6vw,3.2rem);margin:0 0 0.6rem;color:var(--highlight-yellow);letter-spacing:0.6px}
+    .hero-copy p{color:rgba(255,255,255,0.88);margin:0 0 1.25rem;font-size:1.05rem}
+    .hero-actions{display:flex;gap:0.8rem;flex-wrap:wrap}
+
+    .hero-card{
+      background:linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.03));
+      border-radius:16px;padding:1.25rem;border:1px solid rgba(255,255,255,0.04);
+      color:#fff;box-shadow:0 10px 30px rgba(0,0,0,0.45)
+    }
+    .hero-card h4{margin:0 0 0.5rem;font-family:'Poppins';color:var(--accent-green)}
+    .hero-card small{color:rgba(255,255,255,0.75)}
+
+    /* ========
+       Sections
+       ======== */
+    main{display:block}
+    .section{padding:4.25rem 1rem}
+    .container{max-width:1200px;margin:0 auto}
+
+    .section-title{font-family:'Poppins';font-size:1.6rem;margin-bottom:0.75rem;color:var(--highlight-yellow);text-align:center}
+    .section-sub{max-width:780px;margin:0 auto 2rem;text-align:center;color:rgba(255,255,255,0.82)}
+
+    /* Feature cards */
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.25rem}
+    .card{background:linear-gradient(180deg, rgba(255,255,255,0.03), rgba(0,0,0,0.06));padding:1.25rem;border-radius:12px;border:1px solid rgba(255,255,255,0.04);box-shadow:0 8px 18px rgba(0,0,0,0.45)}
+    .card h3{font-family:'Poppins';margin:0 0 0.5rem;color:var(--accent-green)}
+    .card p{margin:0;color:rgba(255,255,255,0.86)}
+
+    /* Membership area */
+    .membership-grid{display:grid;grid-template-columns:1fr 360px;gap:2rem;align-items:start}
+    .price {background:linear-gradient(180deg, rgba(255,255,255,0.03), rgba(0,0,0,0.06));padding:1rem;border-radius:12px;border:1px solid rgba(255,255,255,0.04)}
+    .price h3{color:var(--highlight-yellow);margin:0 0 0.5rem}
+    .join-form{display:flex;flex-direction:column;gap:0.6rem}
+    .form-row input, .form-row select{padding:0.6rem;border-radius:8px;border:1px solid rgba(255,255,255,0.08);background:rgba(0,0,0,0.2);color:#fff}
+    .form-row label{font-size:0.85rem;color:rgba(255,255,255,0.8)}
+
+    /* FAQ accordion */
+    .faq-item{border-radius:10px;border:1px solid rgba(255,255,255,0.04);overflow:hidden}
+    .faq-q{display:flex;justify-content:space-between;align-items:center;padding:0.9rem 1rem;cursor:pointer;background:linear-gradient(90deg, rgba(255,255,255,0.01), rgba(0,0,0,0.02))}
+    .faq-a{padding:0.9rem 1rem;border-top:1px solid rgba(255,255,255,0.03);display:none;color:rgba(255,255,255,0.88)}
+
+    /* Gallery */
+    .gallery-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:0.6rem}
+    .gallery-item{border-radius:10px;overflow:hidden;height:150px;background-size:cover;background-position:center}
+
+    /* Contact */
+    .contact-grid{display:grid;grid-template-columns:1fr 340px;gap:1.2rem}
+    .contact-card{padding:1rem;border-radius:10px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.06));border:1px solid rgba(255,255,255,0.04)}
+
+    /* Footer */
+    .site-footer{padding:2.5rem 1rem;background:linear-gradient(90deg,#070707,#141414);color:var(--highlight-yellow);text-align:center}
+    .footer-links a{color:rgba(255,255,255,0.9);margin:0 0.5rem}
+
+    /* Animations */
+    [data-animate]{opacity:0;transform:translateY(18px);transition:all 0.65s cubic-bezier(.2,.9,.2,1)}
+    [data-animate].in-view{opacity:1;transform:none}
+
+    /* Responsive */
+    @media (max-width:980px){
+      .hero-inner{grid-template-columns:1fr;gap:1rem}
+      .hero{padding:3.2rem 1rem}
+      .membership-grid{grid-template-columns:1fr}
+      .contact-grid{grid-template-columns:1fr}
+      .nav{display:none}
+      .hamburger{display:block}
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="brand">
+      <div class="logo">S</div>
+      <div>
+        <h1>Wilmslow SCARAB</h1>
+        <div style="font-size:12px;color:rgba(255,255,255,0.65);margin-top:2px">Swimmers Can Also Run And Bike</div>
+      </div>
+    </div>
+
+    <nav class="nav" aria-label="Main navigation">
+      <a href="#home">Home</a>
+      <a href="#training">Training</a>
+      <a href="#membership">Membership</a>
+      <a href="#theteam">The Team</a>
+      <a href="#governance">Governance</a>
+      <a href="#faq">FAQ</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <button class="cta-button">Join</button>
+    <button class="hamburger" aria-label="Open menu">☰</button>
+  </header>
+
+  <!-- HERO / HOME -->
+  <section id="home" class="hero">
+    <div class="hero-inner container">
+      <div class="hero-copy">
+        <h2>You can't crush the beetle!</h2>
+        <p>Wilmslow SCARAB Tri Club is a friendly, all-abilities community for swimmers, runners and cyclists. We offer coached sessions, group rides and social events in Wilmslow/South Manchester — whether you're starting out or chasing a PB.</p>
+
+        <div class="hero-actions">
+          <a class="cta-button" href="#membership">Join Now</a>
+          <a class="cta-button" href="#training" style="background:transparent;border:2px solid rgba(255,255,255,0.06);color:#fff">View Training</a>
+        </div>
+      </div>
+
+      <aside class="hero-card">
+        <h4>Stay Connected</h4>
+        <p>Catch up with the latest from the club and stay prepared for every session.</p>
+
+        <div style="height:1rem"></div>
+
+        <a href="#blog" class="cta-button" style="display:inline-block; width:100%; text-align:center; margin-bottom:0.6rem;">
+          📰 View Our Blog
+        </a>
+
+        <a href="#kit" class="cta-button" style="display:inline-block; width:100%; text-align:center;">
+          🎽 Kit Requirements
+        </a>
+      </aside>
+
+    </div>
+</section>
+
+
+
+  <!-- TRAINING -->
+  <section id="training" class="section" data-animate>
+    <div class="container">
+      <h2 class="section-title">Training</h2>
+      <p class="section-sub">Structured sessions for swim, bike and run. Click a card for more details and session times.</p>
+
+      <div class="grid">
+        <article class="card" role="article">
+          <h3>🏊 Swimming</h3>
+          <p>Pool sessions consisting of drills & technique work. Head coach: Andy. Pool: Wilmslow Leisure Centre. Wednesday evenings 19:00 - 20:30.</p>
+        </article>
+
+        <article class="card">
+          <h3>🚴 Cycling</h3>
+          <p>Weekly group rides from social tempo to race pace, plus turbo sessions. Saturday long rides and midweek intervals.</p>
+        </article>
+
+        <article class="card">
+          <h3>🏃 Running</h3>
+          <p>We are affiliated with the Wilmslow Striders, who meet every Tuesday and Thursday at 6:30 pm outside Wilmslow Leisure Centre. Find them on Facebook at the link below.</p>
+        </article>
+
+        <article class="card">
+          <h3>🧰 Workshops</h3>
+          <p>Bike maintenance sessions, transition practice and race-prep workshops for members.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- MEMBERSHIP -->
+  <section id="membership" class="section" data-animate>
+    <div class="container">
+      <h2 class="section-title">Membership</h2>
+      <p class="section-sub">Become a member to access coached sessions, club kit discounts and our community events.</p>
+
+      <div class="membership-grid">
+        <div>
+          <div class="card">
+            <h3>Benefits</h3>
+            <ul style="color:rgba(255,255,255,0.88);margin-left:1rem">
+              <li>Coached swim & run sessions</li>
+              <li>Access to club rides & events</li>
+              <li>Discounts on race entries such as Wilmslow Spring Triathlon</li>
+              <li>Members-only WhatsApp & Strava club</li>
+            </ul>
+          </div>
+
+          <div style="height:1rem"></div>
+
+          <div class="card">
+            <h3>Types & Prices</h3>
+            <div style="display:flex;gap:0.7rem;flex-wrap:wrap;margin-top:0.6rem">
+              <div class="price" style="flex:1">
+                <h4>Adult Annual</h4>
+                <div style="font-size:1.2rem;font-weight:700;color:var(--highlight-yellow)">£50 / year</div>
+              </div>
+
+              <div class="price" style="flex:1">
+                <h4>Student/Senior</h4>
+                <div style="font-size:1.2rem;font-weight:700;color:var(--highlight-yellow)">£50 / year</div>
+              </div>
+
+              <div class="price" style="flex:1">
+                <h4>Pay-as-you-go (Swim)</h4>
+                <div style="font-size:1.2rem;font-weight:700;color:var(--highlight-yellow)">£6 / session</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <aside class="price" aria-labelledby="join-heading">
+          <h3 id="join-heading">Join Now</h3>
+          <form class="join-form" onsubmit="event.preventDefault();alert('Thanks — we\'ll be in touch with sign-up details!')">
+            <div class="form-row">
+              <label for="name">Full name</label>
+              <input id="name" name="name" placeholder="Jane Example" required />
+            </div>
+            <div class="form-row">
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" placeholder="you@example.com" required />
+            </div>
+            <div class="form-row">
+              <label for="type">Membership type</label>
+              <select id="type" name="type">
+                <option>Adult Annual</option>
+                <option>Student / Senior</option>
+                <option>Pay-as-you-go</option>
+              </select>
+            </div>
+            <div style="display:flex;gap:0.5rem;margin-top:0.6rem">
+              <button class="cta-button" type="submit" style="flex:1">Request to Join</button>
+            </div>
+          </form>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- THE TEAM -->
+  <section id="theteam" class="section" data-animate>
+    <div class="container">
+      <h2 class="section-title">Meet the Team</h2>
+      <p class="section-sub">Friendly, qualified coaches who run our sessions.</p>
+
+      <div class="grid">
+        <div class="card">
+          <h3>Andy Preece</h3>
+          <p>Head swim coach — ASA Level 2.</p>
+        </div>
+        <div class="card">
+          <h3>Simon Clapham</h3>
+          <p>Simon founded the club at a time when there was only one other triathlon club in South Manchester, 
+             and has been with it ever since, acting as our lead coach. He holds level 3 in Swim coaching and 
+             level 2 Triathlon coaching qualifications</p>
+        </div>
+        <div class="card">
+          <h3>Jason Stott</h3>
+          <p>Jason is heavily involved with the running side of Scarab Tri with our sister club Wilmslow Striders
+             (also based at the Leisure Centre) which welcomes runners and Scarabs alike.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GOVERNANCE -->
+<section id="governance" class="section" data-animate>
+  <div class="container">
+    <h2 class="section-title">Governance</h2>
+    <p class="section-sub">
+      Scarab Tri Club has a governance structure in place to ensure transparent and effective club operations. Annual General Meetings (AGMs) are held around the end of March each year. 
+    </p>
+
+    <div class="grid">
+      <div class="card">
+        <h3>Governance Structure</h3>
+        <p>
+          The club’s accounting year runs from 1st April to 31st March, and members are invited to nominate candidates for executive roles before the AGM. For a nomination to be voted on, there must be a proposer and a seconder, and the nominee must be willing to serve. Terms are typically one year, but consecutive terms can be accepted. :contentReference[oaicite:3]{index=3}
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Annual General Meetings</h3>
+        <p>
+          Recent AGM minutes are listed below. You can upload documents here or link them when available:
+        </p>
+
+        <ul style="color:rgba(255,255,255,0.88)">
+          <li><strong>2022 AGM Minutes</strong> – <a href="https://www.scarabtri.com/_files/ugd/0eb4de_89adad4e7c684f469cfc5634e3bc4c64.pdf" style="color:var(--highlight-yellow)">Download</a></li>
+          <li><strong>2021 AGM Minutes</strong> – <a style="color: white">No AGM held</a></li>
+          <li><strong>2020 AGM Minutes</strong> – <a href="https://www.scarabtri.com/_files/ugd/0eb4de_2016d424cebd4a7a906bef846508b05c.pdf" style="color:var(--highlight-yellow)">Download</a></li>
+          <li><strong>2019 AGM Minutes</strong> – <a href="https://www.scarabtri.com/_files/ugd/0eb4de_50f4f12c37944044a9d1f2558d44d000.pdf" style="color:var(--highlight-yellow)">Download</a></li>
+        </ul>
+
+      </div>
+    </div>
+
+    <div style="margin-top:2rem">
+      <p class="section-sub" style="text-align:left;">
+        Additional governance documents like the Club’s Articles and Strategy & Development Plan can be added below or linked here for members to download.
+      </p>
+    </div>
+  </div>
+</section>
+
+
+  <!-- FAQ -->
+  <section id="faq" class="section" data-animate>
+    <div class="container">
+      <h2 class="section-title">Frequently Asked Questions</h2>
+      <p class="section-sub">Quick answers to common queries. Still need help? Contact us below.</p>
+
+      <div style="display:grid;gap:0.8rem;max-width:900px;margin:0 auto">
+        <div class="faq-item">
+          <div class="faq-q">What do I need for my first session? <span>+</span></div>
+          <div class="faq-a">Bring swimwear for pool sessions (goggles recommended), a road or hybrid bike for rides, and trainers for run sessions. A positive attitude! Pay-as-you-go participants can pay on arrival.</div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q">Do I need to be fast to join? <span>+</span></div>
+          <div class="faq-a">Not at all — we welcome all abilities. Sessions are structured to accommodate different experience levels.</div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q">Where do you meet for rides? <span>+</span></div>
+          <div class="faq-a">Meet at Wilmslow town centre or specified cafe points. Check the WhatsApp/Strava club for weekly ride meet locations.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section id="gallery" class="section" data-animate>
+    <div class="container">
+      <h2 class="section-title">Gallery</h2>
+      <p class="section-sub">Moments from club sessions and races.</p>
+
+      <div class="gallery-grid">
+        <div class="gallery-item" style="background-image:url('https://images.unsplash.com/photo-1526406915892-1c2f3d7b1a34?auto=format&fit=crop&w=800&q=60')"></div>
+        <div class="gallery-item" style="background-image:url('https://images.unsplash.com/photo-1508609349937-5ec4ae374ebf?auto=format&fit=crop&w=800&q=60')"></div>
+        <div class="gallery-item" style="background-image:url('https://images.unsplash.com/photo-1505751172876-fa1923c5c528?auto=format&fit=crop&w=800&q=60')"></div>
+        <div class="gallery-item" style="background-image:url('https://www.flickr.com/photos/163556792@N02/46913055824auto=format&fit=crop&w=800&q=60')"></div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="section" data-animate>
+    <div class="container">
+      <h2 class="section-title">Contact</h2>
+      <p class="section-sub">Questions? Coaching enquiries? Email the club or use the form below.</p>
+
+      <div class="contact-grid">
+        <div class="contact-card">
+          <h3>Get in touch</h3>
+          <p style="color:rgba(255,255,255,0.85)">Email: <a href="mailto:scarabtriathlonclub@gmail.com">scarabtriathlonclub@gmail.com</a></p>
+          <p style="color:rgba(255,255,255,0.85)">Strava • Facebook • Instagram (links in footer)</p>
+
+          <div style="height:1rem"></div>
+
+          <form onsubmit="event.preventDefault();alert('Thanks — message sent (demo)')">
+            <label style="font-size:0.85rem;color:rgba(255,255,255,0.8)">Your message</label>
+            <textarea required rows="4" style="width:100%;padding:0.6rem;border-radius:8px;border:1px solid rgba(255,255,255,0.06);background:rgba(0,0,0,0.2);color:#fff"></textarea>
+            <div style="height:0.6rem"></div>
+            <button class="cta-button" type="submit">Send message</button>
+          </form>
+        </div>
+
+        <div class="contact-card">
+          <h3>Where we train</h3>
+          <p style="color:rgba(255,255,255,0.85)">Wilmslow Leisure Centre & local routes across Cheshire. Click for map directions.</p>
+          <div style="height:0.8rem"></div>
+          <iframe title="Wilmslow map" src="https://www.google.com/maps?q=Wilmslow+Leisure+Centre&output=embed" style="width:100%;height:220px;border:0;border-radius:8px;filter:grayscale(0.2) brightness(0.9)"></iframe>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div style="margin-bottom:0.6rem">&copy; 2026 Wilmslow SCARAB Tri Club</div>
+      <div class="footer-links" style="font-size:0.95rem">
+        <a href="https://www.facebook.com/groups/ScarabTriClub/">Facebook</a>•
+        <a href="https://www.instagram.com/scarabtriclub/?hl=en">Instagram</a>•
+        <a href="https://www.strava.com/clubs/17461?hl=en-GB">Strava</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts: animations, faq, responsive nav -->
+  <script>
+    // simple in-view animation
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if(e.isIntersecting) e.target.classList.add('in-view');
+      });
+    }, {threshold: 0.12});
+
+    document.querySelectorAll('[data-animate]').forEach(el => io.observe(el));
+
+    // FAQ accordion
+    document.querySelectorAll('.faq-q').forEach(q => {
+      q.addEventListener('click', () => {
+        const a = q.nextElementSibling;
+        const open = a.style.display === 'block';
+        document.querySelectorAll('.faq-a').forEach(x => x.style.display = 'none');
+        if(!open) a.style.display = 'block';
+      });
+    });
+
+    // Hamburger & mobile nav
+    const ham = document.querySelector('.hamburger');
+    const nav = document.querySelector('.nav');
+    ham && ham.addEventListener('click', ()=>{
+      const showing = nav.style.display === 'flex';
+      nav.style.display = showing ? 'none' : 'flex';
+    });
+
+  </script>
+</body>
+</html>
