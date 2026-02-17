@@ -31,14 +31,14 @@
     *{box-sizing:border-box}
     html,body{height:100%}
     body{
-      margin:0;
-      font-family:'Open Sans',system-ui,-apple-system,Segoe UI,Roboto,'Helvetica Neue',Arial;
-      color: #fff;
-      background: var(--container-corvid-background-color);
-      -webkit-font-smoothing:antialiased;
-      -moz-osx-font-smoothing:grayscale;
-      line-height:1.5;
-      scroll-behavior:smooth;
+        margin:0;
+        font-family:'Open Sans',system-ui,-apple-system,Segoe UI,Roboto,'Helvetica Neue',Arial;
+        color:#fff;
+        background:#050505; /* plain dark background */
+        -webkit-font-smoothing:antialiased;
+        -moz-osx-font-smoothing:grayscale;
+        line-height:1.5;
+        scroll-behavior:smooth;
     }
     img{max-width:100%;height:auto;display:block}
     a{text-decoration:none;color:inherit}
@@ -87,10 +87,14 @@
     .hero-copy p{color:rgba(255,255,255,0.88);margin:0 0 1.25rem;font-size:1.05rem}
     .hero-actions{display:flex;gap:0.8rem;flex-wrap:wrap}
 
+    /* SOLID hero card background */
     .hero-card{
-      background:linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.03));
-      border-radius:16px;padding:1.25rem;border:1px solid rgba(255,255,255,0.04);
-      color:#fff;box-shadow:0 10px 30px rgba(0,0,0,0.45)
+      background:#181818;
+      border-radius:16px;
+      padding:1.25rem;
+      border:1px solid rgba(255,255,255,0.08);
+      color:#fff;
+      box-shadow:0 10px 30px rgba(0,0,0,0.45);
     }
     .hero-card h4{margin:0 0 0.5rem;font-family:'Poppins';color:var(--accent-green)}
     .hero-card small{color:rgba(255,255,255,0.75)}
@@ -99,21 +103,43 @@
        Sections
        ======== */
     main{display:block}
-    .section{padding:4.25rem 1rem}
-    .container{max-width:1200px;margin:0 auto}
+    .section{
+        padding:4.25rem 1rem;
+        background:#111;          /* block background */
+        max-width:1200px;
+        margin:2rem auto;         /* space between blocks */
+        border-radius:16px;       /* optional, but looks good */
+    }
+    .container{max-width:100%;}
 
     .section-title{font-family:'Poppins';font-size:1.6rem;margin-bottom:0.75rem;color:var(--highlight-yellow);text-align:center}
     .section-sub{max-width:780px;margin:0 auto 2rem;text-align:center;color:rgba(255,255,255,0.82)}
 
     /* Feature cards */
     .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.25rem}
-    .card{background:linear-gradient(180deg, rgba(255,255,255,0.03), rgba(0,0,0,0.06));padding:1.25rem;border-radius:12px;border:1px solid rgba(255,255,255,0.04);box-shadow:0 8px 18px rgba(0,0,0,0.45)}
+
+    /* SOLID card backgrounds */
+    .card{
+      background:#181818;
+      padding:1.25rem;
+      border-radius:12px;
+      border:1px solid rgba(255,255,255,0.08);
+      box-shadow:0 8px 18px rgba(0,0,0,0.45);
+    }
     .card h3{font-family:'Poppins';margin:0 0 0.5rem;color:var(--accent-green)}
     .card p{margin:0;color:rgba(255,255,255,0.86)}
 
     /* Membership area */
     .membership-grid{display:grid;grid-template-columns:1fr 360px;gap:2rem;align-items:start}
-    .price {background:linear-gradient(180deg, rgba(255,255,255,0.03), rgba(0,0,0,0.06));padding:1rem;border-radius:12px;border:1px solid rgba(255,255,255,0.04)}
+
+    /* SOLID price backgrounds */
+    .price {
+      background:#181818;
+      padding:1rem;
+      border-radius:12px;
+      border:1px solid rgba(255,255,255,0.08);
+      box-shadow:0 8px 18px rgba(0,0,0,0.45);
+    }
     .price h3{color:var(--highlight-yellow);margin:0 0 0.5rem}
     .join-form{display:flex;flex-direction:column;gap:0.6rem}
     .form-row input, .form-row select{padding:0.6rem;border-radius:8px;border:1px solid rgba(255,255,255,0.08);background:rgba(0,0,0,0.2);color:#fff}
@@ -130,7 +156,15 @@
 
     /* Contact */
     .contact-grid{display:grid;grid-template-columns:1fr 340px;gap:1.2rem}
-    .contact-card{padding:1rem;border-radius:10px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.06));border:1px solid rgba(255,255,255,0.04)}
+
+    /* SOLID contact card backgrounds */
+    .contact-card{
+      padding:1rem;
+      border-radius:10px;
+      background:#181818;
+      border:1px solid rgba(255,255,255,0.08);
+      box-shadow:0 8px 18px rgba(0,0,0,0.45);
+    }
 
     /* Footer */
     .site-footer{padding:2.5rem 1rem;background:linear-gradient(90deg,#070707,#141414);color:var(--highlight-yellow);text-align:center}
@@ -139,8 +173,6 @@
     /* Animations */
     [data-animate]{opacity:0;transform:translateY(18px);transition:all 0.65s cubic-bezier(.2,.9,.2,1)}
     [data-animate].in-view{opacity:1;transform:none}
-
-
 
     /* Responsive */
     @media (max-width:980px){
@@ -154,10 +186,7 @@
       .nav a{display:block;padding:0.75rem 0;color:#fff;border-bottom:1px solid rgba(255,255,255,0.1)}
       .nav a:last-child{border-bottom:none}
       .hamburger{display:block;font-size:1.8rem;background:none;border:none;color:#fff;cursor:pointer}
-
-}
-
-
+    }
   </style>
 </head>
 <body>
@@ -216,9 +245,7 @@
       </aside>
 
     </div>
-</section>
-
-
+  </section>
 
   <!-- TRAINING -->
   <section id="training" class="section" data-animate>
@@ -346,45 +373,44 @@
   </section>
 
   <!-- GOVERNANCE -->
-<section id="governance" class="section" data-animate>
-  <div class="container">
-    <h2 class="section-title">Governance</h2>
-    <p class="section-sub">
-      Scarab Tri Club has a governance structure in place to ensure transparent and effective club operations. Annual General Meetings (AGMs) are held around the end of March each year. 
-    </p>
-
-    <div class="grid">
-      <div class="card">
-        <h3>Governance Structure</h3>
-        <p>
-          The club’s accounting year runs from 1st April to 31st March, and members are invited to nominate candidates for executive roles before the AGM. For a nomination to be voted on, there must be a proposer and a seconder, and the nominee must be willing to serve. Terms are typically one year, but consecutive terms can be accepted. :contentReference[oaicite:3]{index=3}
-        </p>
-      </div>
-
-      <div class="card">
-        <h3>Annual General Meetings</h3>
-        <p>
-          Recent AGM minutes are listed below. You can upload documents here or link them when available:
-        </p>
-
-        <ul style="color:rgba(255,255,255,0.88)">
-          <li><strong>2022 AGM Minutes</strong> – <a href="https://www.scarabtri.com/_files/ugd/0eb4de_89adad4e7c684f469cfc5634e3bc4c64.pdf" style="color:var(--highlight-yellow)">Download</a></li>
-          <li><strong>2021 AGM Minutes</strong> – <a style="color: white">No AGM held</a></li>
-          <li><strong>2020 AGM Minutes</strong> – <a href="https://www.scarabtri.com/_files/ugd/0eb4de_2016d424cebd4a7a906bef846508b05c.pdf" style="color:var(--highlight-yellow)">Download</a></li>
-          <li><strong>2019 AGM Minutes</strong> – <a href="https://www.scarabtri.com/_files/ugd/0eb4de_50f4f12c37944044a9d1f2558d44d000.pdf" style="color:var(--highlight-yellow)">Download</a></li>
-        </ul>
-
-      </div>
-    </div>
-
-    <div style="margin-top:2rem">
-      <p class="section-sub" style="text-align:left;">
-        Additional governance documents like the Club’s Articles and Strategy & Development Plan can be added below or linked here for members to download.
+  <section id="governance" class="section" data-animate>
+    <div class="container">
+      <h2 class="section-title">Governance</h2>
+      <p class="section-sub">
+        Scarab Tri Club has a governance structure in place to ensure transparent and effective club operations. Annual General Meetings (AGMs) are held around the end of March each year. 
       </p>
-    </div>
-  </div>
-</section>
 
+      <div class="grid">
+        <div class="card">
+          <h3>Governance Structure</h3>
+          <p>
+            The club’s accounting year runs from 1st April to 31st March, and members are invited to nominate candidates for executive roles before the AGM. For a nomination to be voted on, there must be a proposer and a seconder, and the nominee must be willing to serve. Terms are typically one year, but consecutive terms can be accepted.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Annual General Meetings</h3>
+          <p>
+            Recent AGM minutes are listed below. You can upload documents here or link them when available:
+          </p>
+
+          <ul style="color:rgba(255,255,255,0.88)">
+            <li><strong>2022 AGM Minutes</strong> – <a href="https://www.scarabtri.com/_files/ugd/0eb4de_89adad4e7c684f469cfc5634e3bc4c64.pdf" style="color:var(--highlight-yellow)">Download</a></li>
+            <li><strong>2021 AGM Minutes</strong> – <a style="color: white">No AGM held</a></li>
+            <li><strong>2020 AGM Minutes</strong> – <a href="https://www.scarabtri.com/_files/ugd/0eb4de_2016d424cebd4a7a906bef846508b05c.pdf" style="color:var(--highlight-yellow)">Download</a></li>
+            <li><strong>2019 AGM Minutes</strong> – <a href="https://www.scarabtri.com/_files/ugd/0eb4de_50f4f12c37944044a9d1f2558d44d000.pdf" style="color:var(--highlight-yellow)">Download</a></li>
+          </ul>
+
+        </div>
+      </div>
+
+      <div style="margin-top:2rem">
+        <p class="section-sub" style="text-align:left;">
+          Additional governance documents like the Club’s Articles and Strategy & Development Plan can be added below or linked here for members to download.
+        </p>
+      </div>
+    </div>
+  </section>
 
   <!-- FAQ -->
   <section id="faq" class="section" data-animate>
@@ -422,7 +448,6 @@
         <div class="gallery-item" style="background-image:url('https://images.unsplash.com/photo-1508609349937-5ec4ae374ebf?auto=format&fit=crop&w=800&q=60')"></div>
         <div class="gallery-item" style="background-image:url('https://images.unsplash.com/photo-1505751172876-fa1923c5c528?auto=format&fit=crop&w=800&q=60')"></div>
         <div class="gallery-item" style="background-image:url('https://www.flickr.com/photos/163556792@N02/46913055824auto=format&fit=crop&w=800&q=60')"></div>
-
       </div>
 
     </div>
@@ -498,11 +523,11 @@
     const ham = document.querySelector('.hamburger');
     const nav = document.querySelector('.nav');
     ham && ham.addEventListener('click', ()=>{
-    const showing = nav.style.display === 'flex';
-    nav.style.display = showing ? 'none' : 'flex';
+      const showing = nav.style.display === 'flex';
+      nav.style.display = showing ? 'none' : 'flex';
     });
 
-    // NEW: close menu when a nav link is clicked (mobile only)
+    // Close menu when a nav link is clicked (mobile only)
     document.querySelectorAll('.nav a').forEach(link => {
       link.addEventListener('click', () => {
         if (window.innerWidth <= 980) {
@@ -510,10 +535,6 @@
         }
       });
     });
-  
-
-
-
   </script>
 </body>
 </html>

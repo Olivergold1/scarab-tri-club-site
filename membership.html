@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Membership – Wilmslow SCARAB Tri Club</title>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;700&family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Shared Styles -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="brand">
+      <div class="logo">S</div>
+      <div>
+        <h1>Wilmslow SCARAB</h1>
+        <div style="font-size:12px;color:rgba(255,255,255,0.65);margin-top:2px">
+          Swimmers Can Also Run And Bike
+        </div>
+      </div>
+    </div>
+
+    <nav class="nav" aria-label="Main navigation">
+      <a href="index.html">Home</a>
+      <a href="training.html">Training</a>
+      <a href="membership.html" class="active">Membership</a>
+      <a href="team.html">The Team</a>
+      <a href="governance.html">Governance</a>
+      <a href="faq.html">FAQ</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+
+    <button class="cta-button" onclick="location.href='membership.html'">Join</button>
+    <button class="hamburger" aria-label="Open menu">☰</button>
+  </header>
+
+  <!-- PAGE CONTENT -->
+  <main class="page">
+
+    <h2 class="section-title">Membership</h2>
+    <p class="section-sub">
+      Become a member to access coached sessions, club kit discounts and our community events.
+    </p>
+
+    <div class="grid">
+
+      <!-- Benefits -->
+      <div class="card">
+        <h3>Benefits</h3>
+        <ul style="color:rgba(255,255,255,0.88);margin-left:1rem;line-height:1.7">
+          <li>Coached swim & run sessions</li>
+          <li>Access to club rides & events</li>
+          <li>Discounts on race entries such as Wilmslow Spring Triathlon</li>
+          <li>Members-only WhatsApp & Strava club</li>
+        </ul>
+      </div>
+
+      <!-- Types & Prices -->
+      <div class="card">
+        <h3>Types & Prices</h3>
+
+        <div style="display:flex;gap:0.7rem;flex-wrap:wrap;margin-top:0.6rem">
+
+          <div class="card" style="flex:1">
+            <h4>Adult Annual</h4>
+            <div style="font-size:1.2rem;font-weight:700;color:var(--highlight-yellow)">£50 / year</div>
+          </div>
+
+          <div class="card" style="flex:1">
+            <h4>Student / Senior</h4>
+            <div style="font-size:1.2rem;font-weight:700;color:var(--highlight-yellow)">£50 / year</div>
+          </div>
+
+          <div class="card" style="flex:1">
+            <h4>Pay-as-you-go (Swim)</h4>
+            <div style="font-size:1.2rem;font-weight:700;color:var(--highlight-yellow)">£6 / session</div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Join Form -->
+    <div class="card">
+    <h3>Join Now</h3>
+
+    <form class="join-form" onsubmit="event.preventDefault();alert('Thanks — we\'ll be in touch with sign-up details!')">
+
+        <div class="form-row">
+        <label for="name">Full name</label>
+        <input id="name" name="name" placeholder="Jane Example" required />
+        </div>
+
+        <div class="form-row">
+        <label for="email">Email</label>
+        <input id="email" name="email" type="email" placeholder="you@example.com" required />
+        </div>
+
+        <div class="form-row">
+        <label for="type">Membership type</label>
+        <select id="type" name="type" required>
+            <option value="">Select a membership type</option>
+            <option>Adult Annual</option>
+            <option>Student / Senior</option>
+            <option>Pay-as-you-go</option>
+        </select>
+        </div>
+
+        <div class="form-row">
+        <label for="message">Message (optional)</label>
+        <textarea id="message" name="message" rows="5" placeholder="Tell us anything you'd like us to know…"></textarea>
+        </div>
+
+        <button class="cta-button" type="submit" style="width:100%;margin-top:0.5rem">
+        Request to Join
+        </button>
+
+    </form>
+    </div>
+
+    </div>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div style="margin-bottom:0.6rem">&copy; 2026 Wilmslow SCARAB Tri Club</div>
+      <div class="footer-links" style="font-size:0.95rem">
+        <a href="https://www.facebook.com/groups/ScarabTriClub/">Facebook</a> •
+        <a href="https://www.instagram.com/scarabtriclub/?hl=en">Instagram</a> •
+        <a href="https://www.strava.com/clubs/17461?hl=en-GB">Strava</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Shared Scripts -->
+  <script src="scripts.js"></script>
+
+</body>
+</html>
